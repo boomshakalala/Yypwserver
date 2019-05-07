@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <LinearLayout
+        android:id="@+id/ll_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:text="合计"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tv_price"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginStart="10dp"
+            android:drawablePadding="10dp"
+            android:gravity="center"
+            android:text="￥0.0"
+            android:textColor="@color/colorPrice"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/tv_action"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@color/colorPrimary"
+            android:gravity="center"
+            android:paddingEnd="30dp"
+            android:paddingStart="30dp"
+            android:text="立即支付"
+            android:textColor="@color/white"
+            android:textSize="14sp" />
+    </LinearLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@color/page_bg"
+        app:layout_constraintBottom_toTopOf="@id/ll_bottom"
+        app:layout_constraintTop_toTopOf="parent"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="12dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="14dp"
+                android:background="@mipmap/ticketbg">
+
+                <TextView
+                    android:id="@+id/tv_start_city"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="30dp"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    tools:text="唐山市" />
+
+                <TextView
+                    android:id="@+id/tv_start_address"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignStart="@id/tv_start_city"
+                    android:layout_below="@id/tv_start_city"
+                    android:layout_marginTop="10dp"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"
+                    tools:text="唐山恒通快捷酒店" />
+
+                <TextView
+                    android:id="@+id/tv_end_city"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginTop="30dp"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    tools:text="迁安市" />
+
+                <TextView
+                    android:id="@+id/tv_end_address"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignEnd="@id/tv_end_city"
+                    android:layout_below="@id/tv_start_city"
+                    android:layout_marginTop="10dp"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"
+                    tools:text="唐山恒通快捷酒店" />
+
+                <TextView
+                    android:id="@+id/tv_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignStart="@id/tv_start_city"
+                    android:paddingBottom="10dp"
+                    android:textColor="@color/black_text"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    tools:text="6月8日 周五 11:10上车" />
+
+                <TextView
+                    android:id="@+id/tv_arrive_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignEnd="@id/tv_end_city"
+                    android:layout_alignParentBottom="true"
+                    android:paddingBottom="10dp"
+                    android:textSize="12sp"
+                    tools:text="预计 14:00到达" />
+            </RelativeLayout>
+            <RelativeLayout
+                android:background="@color/white"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="@dimen/activity_horizontal_margin"
+                android:paddingEnd="@dimen/activity_horizontal_margin">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="乘车人数"
+                    android:textColor="@color/black_text"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="12dp"/>
+                <TextView
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:text="+"
+                    android:gravity="center"
+                    android:textColor="@color/colorPrimary"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/bg_hollow"
+                    android:id="@+id/tv_add"/>
+                <TextView
+                    android:id="@+id/tv_count"
+                    android:layout_width="48dp"
+                    android:layout_height="wrap_content"
+                    android:text="1人"
+                    android:textColor="@color/black_text"
+                    android:textSize="14sp"
+                    android:gravity="center"
+                    android:layout_marginTop="12dp"
+                    android:layout_toStartOf="@id/tv_add"/>
+                <TextView
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:text="—"
+                    android:gravity="center"
+                    android:textColor="@color/black_text"
+                    android:layout_marginTop="12dp"
+                    android:layout_toStartOf="@id/tv_count"
+                    android:background="@drawable/bg_black_hollow"
+                    android:id="@+id/tv_subtract"/>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@color/dividing_line_color"
+                    android:layout_below="@id/tv_add"
+                    android:layout_marginTop="12dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="出行保障"
+                    android:textColor="@color/black_text"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="25dp"
+                    android:layout_below="@id/tv_add"
+                    android:id="@+id/tv_title"/>
+                <TextView
+                    android:id="@+id/tv_safe_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="￥3元/人"
+                    android:textColor="@color/black_text"
+                    android:textSize="14sp"
+                    android:layout_marginTop="25dp"
+                    android:layout_below="@id/tv_add"
+                    android:layout_toEndOf="@id/tv_title"
+                    android:layout_marginStart="30dp"/>
+                <Switch
+                    android:id="@+id/switch_btn"
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_below="@id/tv_add"
+                    android:track="@drawable/switch_track"
+                    android:thumb="@drawable/switch_thumb"
+                    android:switchMinWidth="20dp"
+                    android:layout_marginTop="25dp"
+                    android:background="@null"/>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@color/dividing_line_color"
+                    android:layout_below="@id/switch_btn"
+                    android:layout_marginTop="12dp"/>
+                <LinearLayout
+                    android:id="@+id/ll_passenger"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_below="@id/switch_btn"
+                    android:layout_marginTop="12dp"
+                    android:layout_height="wrap_content">
+                    <include layout="@layout/item_passenger_id_card"/>
+                </LinearLayout>
+            </RelativeLayout>
+            <include
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                layout="@layout/layout_pay_check"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="15dp"/>
+        </LinearLayout>
+    </ScrollView>
+
+</android.support.constraint.ConstraintLayout>

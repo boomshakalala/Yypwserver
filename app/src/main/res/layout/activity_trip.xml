@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.cardriver.TripActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white">
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/headView"
+            style="@style/DefaultHeadStyle"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginBottom="12dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="6dp"
+            android:layout_marginTop="12dp" />
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/headView"
+            android:layout_marginTop="6dp"
+            android:layout_toRightOf="@+id/headView"
+            android:drawablePadding="4dp"
+            android:drawableRight="@drawable/ic_sex_selector"
+            android:paddingLeft="12dp"
+            android:singleLine="true"
+            android:text="--"
+            android:textColor="@color/black_text"
+            android:textSize="@dimen/textSize" />
+
+        <TextView
+            android:id="@+id/tv_call_phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="22dp"
+            android:drawableRight="@mipmap/ic_call_phone_y"
+            android:gravity="center"
+            android:paddingRight="14dp" />
+
+        <TextView
+            android:id="@+id/tv_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/headView"
+            android:layout_marginBottom="6dp"
+            android:layout_toRightOf="@+id/headView"
+            android:drawablePadding="4dp"
+            android:paddingLeft="12dp"
+            android:singleLine="true"
+            android:text="--"
+            android:textColor="@color/textColor99"
+            android:textSize="@dimen/smallTextSize" />
+    </RelativeLayout>
+
+    <com.sothree.slidinguppanel.SlidingUpPanelLayout
+        android:id="@+id/mSlidingUpPanelLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="top"
+        app:umanoFadeColor="@android:color/transparent"
+        app:umanoPanelHeight="20dp"
+        app:umanoShadowHeight="0dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.amap.api.maps.MapView
+                android:id="@+id/mapView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <TextView
+                android:id="@+id/tv_location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/btn_slide_action"
+                android:layout_marginBottom="12dp"
+                android:layout_marginLeft="12dp"
+                android:drawableLeft="@mipmap/ic_location" />
+
+            <TextView
+                android:id="@+id/tv_guide"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/btn_slide_action"
+                android:layout_alignParentRight="true"
+                android:layout_marginBottom="12dp"
+                android:layout_marginRight="12dp"
+                android:drawableRight="@mipmap/ic_navi" />
+
+            <com.hbcx.driver.views.SlidingButton
+                android:id="@+id/btn_slide_action"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="12dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="12dp" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <View
+                android:id="@+id/line"
+                style="@style/view_line_h"
+                android:layout_height="0dp"
+                android:layout_below="@+id/headView"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="12dp" />
+
+            <TextView
+                android:id="@+id/tv_content1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/line"
+                android:background="@color/white"
+                android:drawablePadding="8dp"
+                android:drawableStart="@mipmap/ic_time_grey"
+                android:paddingBottom="8dp"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
+                android:paddingTop="12dp"
+                android:singleLine="true"
+                android:text="-"
+                android:textColor="@color/black_text"
+                android:textSize="@dimen/textSize" />
+
+            <TextView
+                android:id="@+id/tv_content2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_content1"
+                android:background="@color/white"
+                android:drawablePadding="8dp"
+                android:drawableStart="@drawable/ic_dot_start"
+                android:paddingBottom="8dp"
+                android:paddingLeft="14dp"
+                android:paddingRight="12dp"
+                android:singleLine="true"
+                android:text="-"
+                android:textColor="@color/black_text"
+                android:textSize="@dimen/textSize" />
+
+            <TextView
+                android:id="@+id/tv_content3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_content2"
+                android:background="@color/white"
+                android:drawablePadding="8dp"
+                android:drawableStart="@drawable/ic_dot_end"
+                android:paddingBottom="8dp"
+                android:paddingLeft="14dp"
+                android:paddingRight="12dp"
+                android:singleLine="true"
+                android:text="-"
+                android:textColor="@color/black_text"
+                android:textSize="@dimen/textSize" />
+
+            <TextView
+                android:id="@+id/tv_panel"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_centerHorizontal="true"
+                android:background="@color/white"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:drawableRight="@mipmap/ic_panel" />
+        </LinearLayout>
+    </com.sothree.slidinguppanel.SlidingUpPanelLayout>
+</LinearLayout>

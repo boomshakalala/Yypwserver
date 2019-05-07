@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/bg_dialog_title">
+
+            <TextView
+                android:id="@+id/tv_distance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingTop="8dp"
+                android:text="距您0.0公里"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/tv_order_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_distance"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="12dp"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/bg_white_line"
+                android:gravity="center"
+                android:paddingBottom="1dp"
+                android:paddingLeft="4dp"
+                android:paddingRight="4dp"
+                android:paddingTop="1dp"
+                android:text="--"
+                android:textColor="@color/white"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/tv_close"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:drawableRight="@mipmap/ic_close_white"
+                android:padding="12dp" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tv_content1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:drawablePadding="7dp"
+            android:drawableStart="@mipmap/ic_time_grey"
+            android:paddingLeft="35dp"
+            android:paddingTop="24dp"
+            android:text="--"
+            android:textColor="@color/black_text"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/tv_content2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:drawablePadding="10dp"
+            android:paddingLeft="38dp"
+            android:text="--"
+            android:textColor="@color/black_text"
+            android:textSize="18sp"
+            android:layout_marginTop="10dp"
+            android:drawableStart="@drawable/ic_dot_start"/>
+
+        <TextView
+            android:id="@+id/tv_content3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:drawablePadding="10dp"
+            android:paddingLeft="38dp"
+            android:text="--"
+            android:textColor="@color/black_text"
+            android:textSize="18sp"
+            android:drawableStart="@drawable/ic_dot_end"
+            android:layout_marginTop="10dp"/>
+
+        <TextView
+            android:id="@+id/tv_content4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:drawablePadding="4dp"
+            android:paddingBottom="8dp"
+            android:paddingLeft="24dp"
+            android:text="--"
+            android:textColor="@color/textColor"
+            android:textSize="@dimen/textSize"
+            android:visibility="gone" />
+
+        <android.support.v4.widget.Space
+            android:layout_width="0dp"
+            android:layout_height="26dp" />
+
+        <RelativeLayout
+            android:id="@+id/rl_map"
+            android:layout_width="match_parent"
+            android:layout_height="100dp">
+
+            <com.amap.api.maps.TextureMapView
+                android:id="@+id/mapView"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="@color/white"/>
+
+            <TextView
+                android:id="@+id/tv_all_distance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/bg_trans_black"
+                android:paddingLeft="4dp"
+                android:paddingRight="4dp"
+                android:text="全程0公里"
+                android:textColor="@color/white"
+                android:textSize="12sp" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_action"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/bg_btn_main_working"
+        android:gravity="center"
+        android:text="抢单"
+        android:textColor="@color/white"
+        android:textSize="14sp" />
+</LinearLayout>

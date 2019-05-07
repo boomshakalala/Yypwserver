@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_grey"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="10dp"
+        android:background="@color/white">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingEnd="@dimen/activity_horizontal_margin"
+                android:paddingStart="@dimen/activity_horizontal_margin">
+
+                <TextView
+                    style="@style/style_common_title"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="线路名称" />
+
+                <EditText
+                    android:id="@+id/et_name"
+                    style="@style/style_common_title_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"
+                    android:hint="填写线路名称"
+                    android:background="@null"
+                    android:maxLength="10"/>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/dividing_line_color" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingEnd="@dimen/activity_horizontal_margin"
+                android:paddingStart="@dimen/activity_horizontal_margin">
+
+                <TextView
+                    style="@style/style_common_title"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="线路类型" />
+
+                <TextView
+                    android:id="@+id/tv_type"
+                    style="@style/style_common_with_more"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"
+                    android:drawablePadding="5dp"
+                    android:hint="选择线路类型"/>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/dividing_line_color" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingEnd="@dimen/activity_horizontal_margin"
+                android:paddingStart="@dimen/activity_horizontal_margin">
+
+                <TextView
+                    style="@style/style_common_title"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="出发地" />
+
+                <TextView
+                    android:id="@+id/tv_start"
+                    style="@style/style_common_with_more"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"
+                    android:drawablePadding="5dp"
+                    android:hint="选择出发地"/>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/dividing_line_color" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingEnd="@dimen/activity_horizontal_margin"
+                android:paddingStart="@dimen/activity_horizontal_margin">
+
+                <TextView
+                    style="@style/style_common_title"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="到达地" />
+
+                <TextView
+                    android:id="@+id/tv_end"
+                    style="@style/style_common_with_more"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"
+                    android:drawablePadding="5dp"
+                    android:hint="选择到达地" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/dividing_line_color" />
+            <LinearLayout
+                android:id="@+id/ll_up_stations"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingEnd="@dimen/activity_horizontal_margin"
+                android:paddingStart="@dimen/activity_horizontal_margin">
+
+                <TextView
+                    style="@style/style_common_title"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="上车点" />
+
+                <TextView
+                    android:id="@+id/tv_up_stations"
+                    style="@style/style_common_with_more"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"
+                    android:drawablePadding="5dp"
+                    android:hint="添加上车点"/>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/dividing_line_color" />
+            <LinearLayout
+                android:id="@+id/ll_points"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingEnd="@dimen/activity_horizontal_margin"
+                android:paddingStart="@dimen/activity_horizontal_margin">
+
+                <TextView
+                    style="@style/style_common_title"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="沿途地" />
+
+                <TextView
+                    android:id="@+id/tv_points"
+                    style="@style/style_common_with_more"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"
+                    android:drawablePadding="5dp"
+                    android:hint="添加沿途地"/>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/dividing_line_color" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="@dimen/activity_horizontal_margin"
+                android:paddingEnd="@dimen/activity_horizontal_margin">
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="最大销售票价"
+                    style="@style/style_common_title"/>
+                <EditText
+                    android:id="@+id/et_money"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/style_common_title_1"
+                    android:hint="填写票价"
+                    android:background="@null"
+                    android:inputType="number"
+                    android:digits="@string/integer"
+                    android:gravity="end"
+                    android:maxLines="1"/>
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/dividing_line_color"/>
+        </LinearLayout>
+    </ScrollView>
+    <Button
+        android:id="@+id/btn_action"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:layout_marginEnd="@dimen/activity_horizontal_margin"
+        android:layout_marginStart="@dimen/activity_horizontal_margin"
+        android:layout_marginTop="12dp"
+        android:background="@color/colorPrimary"
+        android:text="保存"
+        android:textColor="@color/white" />
+</LinearLayout>

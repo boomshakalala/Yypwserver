@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.daimajia.swipe.SwipeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/swipeLayout">
+    <TextView
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:text="删除"
+        android:id="@+id/tv_del"
+        style="@style/style_common_title_1"
+        android:textColor="@color/white"
+        android:background="@color/colorOrange"
+        android:gravity="center"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/style_common_title_1"
+            android:text="成都"
+            android:gravity="center"
+            android:id="@+id/tv_name"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/dividing_line_color"/>
+    </LinearLayout>
+</com.daimajia.swipe.SwipeLayout>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:paddingStart="@dimen/activity_horizontal_margin"
+    android:paddingEnd="@dimen/activity_horizontal_margin">
+    <TextView
+        android:id="@+id/tv_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="9dp"
+        android:text="2018-06-08"
+        android:textColor="@color/textColor99"
+        android:textSize="12sp" />
+    <RatingBar
+        android:id="@+id/rb_score"
+        style="@style/myRatingBar"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:isIndicator="true"
+        android:max="5" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_car_info"
+        android:text="冀B12345 大金龙客车 白色"
+        android:textSize="12sp"
+        android:textColor="@color/black_text"
+        android:layout_below="@id/rb_score"
+        android:layout_marginTop="5dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_name"
+        android:text="陆离"
+        android:textSize="12sp"
+        android:textColor="@color/black_text"
+        android:layout_below="@id/rb_score"
+        android:layout_marginTop="5dp"
+        android:layout_alignParentEnd="true"/>
+    <TextView
+        android:id="@+id/tv_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_name"
+        android:layout_marginTop="6dp"
+        android:text="很不错的司机"
+        android:textColor="@color/black_text"
+        android:textSize="14sp" />
+    <View style="@style/view_line_h"
+        android:layout_below="@id/tv_content"
+        android:layout_marginTop="12dp"/>
+</RelativeLayout>

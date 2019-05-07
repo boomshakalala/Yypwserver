@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
+    android:paddingStart="@dimen/activity_horizontal_margin"
+    android:paddingEnd="@dimen/activity_horizontal_margin">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_title"
+        style="@style/style_common_text"
+        android:text="￥100.00"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="12dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_line"
+        android:text="2018-04-29 11:09"
+        android:textColor="@color/black_text"
+        android:textSize="12sp"
+        app:layout_constraintTop_toBottomOf="@id/tv_title"
+        android:layout_marginTop="8dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_car"
+        android:text="2018-04-29 11:09"
+        android:textColor="@color/black_text"
+        android:textSize="12sp"
+        app:layout_constraintTop_toBottomOf="@id/tv_line"
+        android:layout_marginTop="8dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_status"
+        app:layout_constraintTop_toTopOf="@id/tv_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="快车订单"
+        android:textColor="@color/colorPrice"
+        android:textSize="14sp" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/dividing_line_color"
+        app:layout_constraintTop_toBottomOf="@id/tv_car"
+        android:layout_marginTop="14dp"/>
+</android.support.constraint.ConstraintLayout>
