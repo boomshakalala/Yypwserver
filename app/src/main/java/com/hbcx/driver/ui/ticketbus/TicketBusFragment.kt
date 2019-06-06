@@ -3,15 +3,18 @@ package com.hbcx.driver.ui.ticketbus
 import android.widget.TextView
 import cn.sinata.xldutils.fragment.RecyclerFragment
 import cn.sinata.xldutils.gone
+import cn.sinata.xldutils.rxutils.request
 import cn.sinata.xldutils.utils.SPUtils
 import cn.sinata.xldutils.utils.toTime
 import cn.sinata.xldutils.view.SwipeRefreshRecyclerLayout
 import cn.sinata.xldutils.visible
 import com.hbcx.driver.R
 import com.hbcx.driver.adapter.TicketBusAdapter
+import com.hbcx.driver.dialogs.EditTicketCountDialog
 import com.hbcx.driver.dialogs.TipDialog
 import com.hbcx.driver.network.HttpManager
 import com.hbcx.driver.network.beans.TicketBus
+import com.hbcx.driver.utils.request
 import com.hbcx.driver.utils.requestByF
 import org.jetbrains.anko.bundleOf
 import org.jetbrains.anko.support.v4.find
@@ -36,6 +39,14 @@ class TicketBusFragment:RecyclerFragment() {
     private val lines = arrayListOf<com.hbcx.driver.network.beans.TicketBus>()
     private val adapter by lazy {
         TicketBusAdapter(lines, time.toTime("yyyy-MM-dd") == System.currentTimeMillis().toTime("yyyy-MM-dd"), object : TicketBusAdapter.OnItemClickListener {
+            override fun onLocation(id: Int) {
+                startActivity<ChangeTimeActivity>("id" to id,"isLocation" to true)
+            }
+
+            override fun onChangeTime(id: Int) {
+                startActivity<ChangeTimeActivity>("id" to id,"isLocation" to false)
+            }
+
             override fun onItemClick(id: Int) {
                 startActivity<LineDetailActivity>("id" to id, "time" to time.toTime("yyyy-MM-dd"),"isCurrentDay" to (time.toTime("yyyy-MM-dd") == System.currentTimeMillis().toTime("yyyy-MM-dd")))
             }
@@ -47,6 +58,17 @@ class TicketBusFragment:RecyclerFragment() {
             override fun onSaleTicket(data: TicketBus) {
                 startActivity<SaleTicketActivity>("start" to data.startCityName, "end" to data.endCityName,
                         "date" to time, "id" to data.id)
+            }
+
+            override fun onSetCount(data: TicketBus) {
+                val dialog = EditTicketCountDialog()
+                dialog.setDialogListener{ p,s->
+                    if (s!=null){
+                        editTicketCount(data.id,s)
+                    }
+
+                }
+                dialog.show(fragmentManager,"editTicketCount")
             }
 
             override fun onArrived(id: Int) {
@@ -112,6 +134,15 @@ class TicketBusFragment:RecyclerFragment() {
             }
         },error = {_,_->
             mSwipeRefreshLayout.isRefreshing = false
+        })
+    }
+
+    fun editTicketCount(id:Int,number:String){
+        HttpManager.editTicketCount(id,number).request(this,true,success = {_,_ ->
+            toast("修改成功")
+            getData()
+        },error = {_,_ ->
+
         })
     }
 }

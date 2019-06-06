@@ -5,7 +5,7 @@ import java.io.Serializable
 
 data class TicketBus(val id: Int, val start_time: String, val rideDate: Long, val stationNum: Int, val endStationName: String, val startCityName: String
                      , val lineName: String, val peoNum: Int, val peoNum1: Int, val status: Int, val startStationName: String, val endCityName: String
-                     , val endLat: Double, val startLon: Double, val startLat: Double, val endLon: Double, val lineList: ArrayList<BusStation>) {
+                     , val endLat: Double, val startLon: Double, val startLat: Double, val endLon: Double,val pedestal:Int, val lineList: ArrayList<BusStation>) {
     fun getStatusStr() = if (status == 1) "发车中" else "待发车"
     fun getActionStr() = if (status == 1) "安全到达" else "立即发车"
 }
@@ -48,7 +48,7 @@ data class Car(val id: Int, val pedestal: Int, val status: Int, val licensePlate
 }
 
 data class BusStation(val id: Int, val peoNum1: Int, val name: String, val type: Int, val peoNum: Int, val times: String, val isUpOrDown: Int,
-                      var isChecked: Boolean = false)
+                      var isChecked: Boolean = false,val time:String)
 
 data class TicketDetail(val id: Int, val createTime: Long, val phone: String, val times: String, val nickName: String, val imgUrl: String, val canUp: Boolean
                         , val pointDownName: String, val pointUpName: String, val passengerList: ArrayList<Passenger>) : Serializable
@@ -127,3 +127,9 @@ data class Station(val id:Int,val name: String,val type: Int,var times: String =
  * 设置时间后的站点
  */
 data class StationTime(val pid:Int,val times: String)
+
+/**
+ * 提交经纬度列表
+ */
+
+data class StationLocation(val companyId:Int,val drivername:String,val stations : List<String>):Serializable

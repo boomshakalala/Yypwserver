@@ -121,9 +121,9 @@ class NewOrderDialog : DialogActivity(), RouteSearch.OnRouteSearchListener {
                     ,if (order.type == 1) "快车" else "专车",order.distance!! / 1000,order.startAddress,order.mileage)
         }
         ttsController.playText(voiceText)
-        setTime("60S\n抢单")
+        setTime("${order.pushTime}S\n抢单")
         countDownTimer =
-                object : CountDownTimer(60 * 1000, 1000) {
+                object : CountDownTimer((order.pushTime?.times(1000))!!.toLong(), 1000) {
                     override fun onFinish() {
                         YypwApplication.isOrderShow = false
                         (application as YypwApplication).showNextOrder()
@@ -159,7 +159,7 @@ class NewOrderDialog : DialogActivity(), RouteSearch.OnRouteSearchListener {
 
     private fun takeOrder() {
         showDialog()
-        com.hbcx.driver.network.HttpManager.robOrder(userId, order.id!!).request(this,success = { _, _ ->
+        com.hbcx.driver.network.HttpManager.robOrder(userId, order.id!!).request(this, success = { _, _ ->
             toast("抢单成功！")
             YypwApplication.isOrderShow = false
             (application as YypwApplication).nextOrder = null
@@ -170,7 +170,7 @@ class NewOrderDialog : DialogActivity(), RouteSearch.OnRouteSearchListener {
                 }
                 finish()
             }
-        },error = {_,_->
+        }, error = { _, _->
             YypwApplication.isOrderShow = false
             finish()
         })

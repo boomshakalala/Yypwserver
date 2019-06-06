@@ -5,28 +5,20 @@ import android.content.Intent
 import android.graphics.Color
 import android.support.v7.widget.LinearLayoutManager
 import android.view.View
-import android.widget.TextView
-import cn.qqtheme.framework.picker.DatePicker
 import cn.qqtheme.framework.picker.TimePicker
 import cn.qqtheme.framework.util.ConvertUtils
-import cn.sinata.xldutils.utils.SPUtils
 import com.google.gson.Gson
 import com.hbcx.driver.R
 import com.hbcx.driver.adapter.SetStationTimeAdapter
 import com.hbcx.driver.network.HttpManager
-import com.hbcx.driver.network.beans.HalfStation
-import com.hbcx.driver.network.beans.LineType
 import com.hbcx.driver.network.beans.Station
 import com.hbcx.driver.network.beans.StationTime
 import com.hbcx.driver.ui.TranslateStatusBarActivity
-import com.hbcx.driver.utils.Const
 import com.hbcx.driver.utils.request
 import kotlinx.android.synthetic.main.activity_add_class.*
-import org.jetbrains.anko.dip
 import org.jetbrains.anko.sdk25.coroutines.onClick
 import org.jetbrains.anko.startActivityForResult
 import org.jetbrains.anko.toast
-import java.util.*
 
 class AddClassActivity : TranslateStatusBarActivity() {
     override fun setContentView() = R.layout.activity_add_class
@@ -91,11 +83,11 @@ class AddClassActivity : TranslateStatusBarActivity() {
             }
             titleBar.getRightButton(0)?.isEnabled = false
             HttpManager.addClass(name,lineId,carId,weeks,Gson().toJson(times),rate,startTime,endTime)
-                    .request(this@AddClassActivity,success = { _, _ ->
+                    .request(this@AddClassActivity, success = { _, _ ->
                         toast("添加成功")
                         setResult(Activity.RESULT_OK)
                         finish()
-                    },error = {_,_->
+                    }, error = { _, _->
                         titleBar.getRightButton(0)?.isEnabled = true
                     })
         })
@@ -125,13 +117,13 @@ class AddClassActivity : TranslateStatusBarActivity() {
                 2 -> {
                     tv_line.text = data!!.getStringExtra("name")
                     lineId = data.getIntExtra("id", 0)
-                    HttpManager.getStationList(lineId).request(this,success = {_,data->
+                    HttpManager.getStationList(lineId).request(this, success = { _, data->
                         data?.let {
                             stationList.clear()
                             stationList.addAll(it)
                             adapter.notifyDataSetChanged()
                         }
-                    },error = {_,_->
+                    }, error = { _, _->
                         stationList.clear()
                     })
                 }

@@ -432,8 +432,8 @@ object HttpManager {
     /**
      * 确认乘坐
      */
-    fun confirmRide(id: Int, driverId: Int): Flowable<ResultData<JsonObject>> {
-        val request = ParamsBuilder.create().append("server", com.hbcx.driver.network.Api.CONFIRM_RIDE).append("id", id).append("driverId", driverId)
+    fun confirmRide(id: Int, driverId: Int,barCode:String): Flowable<ResultData<JsonObject>> {
+        val request = ParamsBuilder.create().append("server", com.hbcx.driver.network.Api.CONFIRM_RIDE).append("id", id).append("driverId", driverId).append("barCode",barCode)
         return request().simpleRequest(request.build(encodeDES)).defaultScheduler()
     }
 
@@ -820,6 +820,61 @@ object HttpManager {
         val request = ParamsBuilder.create().append("server", Api.GET_SERVICE)
         return request().simpleRequest(request.build(encodeDES)).defaultScheduler()
     }
+
+    /**
+     * 修改停靠时间站点列表
+     */
+
+    fun getTimePage(id : Int):Flowable<ResultData<List<BusStation>>>{
+        val request =  ParamsBuilder.create().append("server",Api.GET_TIME_PAGE)
+                .append("id",id)
+        return request().getTimePage(request.build(encodeDES)).defaultScheduler()
+    }
+
+    /**
+     * 修改位置信息
+     */
+    fun getLocationPage(id : Int):Flowable<ResultData<StationLocation>>{
+        val request =  ParamsBuilder.create().append("server",Api.GET_LOCATION_PAGE)
+                .append("id",id)
+        return request().getLocationPage(request.build(encodeDES)).defaultScheduler()
+    }
+
+    /**
+     *
+     * 修改停靠时间
+     */
+    fun commitTime(id : Int,endTime:String):Flowable<ResultData<JsonObject>>{
+        val request =  ParamsBuilder.create().append("server",Api.COMMIT_TIME)
+                .append("id",id).append("endtime",endTime)
+        return request().commitTime(request.build(encodeDES)).defaultScheduler()
+    }
+
+    /**
+     *
+     * 提交位置信息
+     */
+    fun commitLocation(Longitude:String,latitude:String,message:String,companyId:Int,toponymy:String,drivername:String):Flowable<ResultData<JsonObject>>{
+        val request =  ParamsBuilder.create().append("server",Api.COMMIT_LOCATION)
+                .append("Longitude",Longitude).append("latitude",latitude).append("message",message)
+                .append("companyId",companyId).append("toponymy",toponymy).append("drivername",drivername)
+        return request().commitLocation(request.build(encodeDES)).defaultScheduler()
+    }
+
+
+    /**
+     *
+     * 修改可售票数
+     */
+    fun editTicketCount(id:Int,number:String):Flowable<ResultData<JsonObject>>{
+        val request =  ParamsBuilder.create().append("server",Api.EDIT_TICKET_COUNT)
+                .append("id",id).append("number",number)
+        return request().editTicketCount(request.build(encodeDES)).defaultScheduler()
+    }
+
+
+
+
 //    /**
 //     * 所有服务城市
 //     */

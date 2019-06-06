@@ -114,4 +114,20 @@ interface ApiService {
 
     @POST
     fun getBankInfo(@Url url:String ,@Query("key") key: String, @Query("bankcard") bankcard: String) :Flowable<JsonObject>
+
+    @POST("app/server")
+    fun getTimePage(@Query("key") key: String): Flowable<ResultData<List<BusStation>>>
+
+    @POST("app/server")
+    fun getLocationPage(@Query("key") key: String): Flowable<ResultData<StationLocation>>
+
+    @POST("app/server")
+    fun commitTime(@Query("key") key: String): Flowable<ResultData<JsonObject>>
+
+    @POST("app/server")
+    fun commitLocation(@Query("key") key: String): Flowable<ResultData<JsonObject>>
+
+    @POST("app/server")
+    fun editTicketCount(@Query("key") key: String): Flowable<ResultData<JsonObject>>
+
 }

@@ -15,9 +15,7 @@ import cn.sinata.xldutils.activity.SelectPhotoDialog
 import cn.sinata.xldutils.utils.isValidIdCard
 import cn.sinata.xldutils.utils.isValidPhone
 import cn.sinata.xldutils.utils.optString
-import com.amap.api.col.sln3.it
 import com.hbcx.driver.R
-import com.hbcx.driver.R.id.*
 import com.hbcx.driver.dialogs.SelectCarTypeDialog
 import com.hbcx.driver.network.HttpManager
 import com.hbcx.driver.network.beans.CarType

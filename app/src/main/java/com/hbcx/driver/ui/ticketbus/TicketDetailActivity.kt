@@ -20,6 +20,10 @@ class TicketDetailActivity: com.hbcx.driver.ui.TranslateStatusBarActivity() {
         intent.getSerializableExtra("data") as com.hbcx.driver.network.beans.TicketDetail
     }
 
+    private val barCode by lazy {
+        intent.getStringExtra("id")
+    }
+
     private val userId by lazy {
         SPUtils.instance().getInt(com.hbcx.driver.utils.Const.User.USER_ID)
     }
@@ -29,7 +33,7 @@ class TicketDetailActivity: com.hbcx.driver.ui.TranslateStatusBarActivity() {
             val tipDialog = com.hbcx.driver.dialogs.TipDialog()
             tipDialog.arguments = bundleOf("msg" to "是否确认乘客已上车？","ok" to "确认","cancel" to "取消")
             tipDialog.setDialogListener { p, s ->
-                HttpManager.confirmRide(data.id,userId).request(this@TicketDetailActivity){ _, data->
+                HttpManager.confirmRide(data.id,userId,barCode).request(this@TicketDetailActivity){ _, data->
                     toast("确认成功")
                     startActivity<BusMainActivity>()
                 }

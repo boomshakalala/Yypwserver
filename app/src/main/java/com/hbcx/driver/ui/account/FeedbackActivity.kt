@@ -38,10 +38,10 @@ class FeedbackActivity: com.hbcx.driver.ui.TranslateStatusBarActivity(), TextWat
             }
             titleBar.getRightButton(0)?.isEnabled = false
             HttpManager.feedback(SPUtils.instance().getInt(com.hbcx.driver.utils.Const.User.USER_ID),content,2)
-                    .request(this,success = { _, _->
+                    .request(this, success = { _, _->
                         toast("提交成功")
                         finish()
-                    },error = {_,_->
+                    }, error = { _, _->
                         titleBar.getRightButton(0)?.isEnabled = true
                     })
         })

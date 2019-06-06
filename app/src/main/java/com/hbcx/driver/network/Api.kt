@@ -1,8 +1,8 @@
 package com.hbcx.driver.network
 
 object Api {
-//    const val BASE_URL = "http://192.168.1.152:8080/YunYou/" //胡瑶内网
-        const val BASE_URL = "http://106.116.167.23/YunYou/" //外网地址
+    const val BASE_URL = "http://192.168.1.152:8080/YunYou/" //胡瑶内网
+//        const val BASE_URL = "http://39.96.176.247:80/YunYou/" //外网地址
     const val URL = "$BASE_URL/app/public/advertInfo?url="
     const val URL1 = BASE_URL + "app/user/getAppText?url="
     const val URL2 = "$BASE_URL/app/public/bannerInfo?url="
@@ -21,7 +21,7 @@ object Api {
 
 
     //    const val SOCKET_SERVER = "192.168.3.228"
-    const val SOCKET_SERVER = "106.116.167.23"
+    const val SOCKET_SERVER = "39.96.176.247"
     const val SOCKET_PORT = 8888
 
 
@@ -103,5 +103,10 @@ object Api {
     const val CLEAR_MSG = "/app/public/clearMessAll"
     const val GET_MSG_LIST = "/app/public/getMessList"
     const val GET_SERVICE = "/app/public/getServerPhone"
+    const val GET_TIME_PAGE = "/app/driverTicketing/gettimepage"
+    const val GET_LOCATION_PAGE = "/app/driverTicketing/getpage"
+    const val COMMIT_TIME = "/app/driverTicketing/updatetime"
+    const val COMMIT_LOCATION = "/app/driverTicketing/addlongitudeandlatitude"
+    const val EDIT_TICKET_COUNT = "/app/driverTicketing/updatepoll"
 
 }

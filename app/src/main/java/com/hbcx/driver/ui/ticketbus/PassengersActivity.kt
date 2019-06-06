@@ -45,7 +45,7 @@ class PassengersActivity: com.hbcx.driver.ui.TranslateStatusBarActivity() {
     }
 
     private fun getData(){
-        com.hbcx.driver.network.HttpManager.getPassengerList(id,time,if (upId == 0) null else upId).request(this,success = { _, data->
+        com.hbcx.driver.network.HttpManager.getPassengerList(id,time,if (upId == 0) null else upId).request(this, success = { _, data->
             recyclerLayout?.isRefreshing = false
             data?.let {
                 passengers.clear()
@@ -56,7 +56,7 @@ class PassengersActivity: com.hbcx.driver.ui.TranslateStatusBarActivity() {
                     recyclerLayout?.setLoadMoreText("")
                 adapter.notifyDataSetChanged()
             }
-        },error = {_,_->
+        }, error = { _, _->
             recyclerLayout?.isRefreshing = false
         })
     }

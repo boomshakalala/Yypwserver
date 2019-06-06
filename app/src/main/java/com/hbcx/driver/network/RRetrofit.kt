@@ -1,5 +1,7 @@
 package com.hbcx.driver.network
 
+import com.hbcx.driver.utils.JsonValidator
+import com.hbcx.driver.utils.log.LogUtil
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -17,9 +19,7 @@ class RRetrofit private constructor() {
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .client(OkHttpClient.Builder()
                     .connectTimeout(30,TimeUnit.SECONDS)
-                    .addInterceptor(HttpLoggingInterceptor().apply {
-                        level = HttpLoggingInterceptor.Level.BODY
-                    })
+                    .addInterceptor(getHttpLoggingInterceptor())
                     .build())
             .build()
     companion object {
@@ -27,4 +27,17 @@ class RRetrofit private constructor() {
     }
 
     fun <T> create(clazz: Class<T>): T = retrofit.create(clazz)
+
+    private fun getHttpLoggingInterceptor(): HttpLoggingInterceptor {
+        val loggingInterceptor = HttpLoggingInterceptor(HttpLoggingInterceptor.Logger { message ->
+            val jsonValidator = JsonValidator()
+            if (!jsonValidator.validate(message)) {
+                LogUtil.d("HttpLog", message)
+            } else {
+                LogUtil.json("HttpLog", message)
+            }
+        })
+        loggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
+        return loggingInterceptor
+    }
 }

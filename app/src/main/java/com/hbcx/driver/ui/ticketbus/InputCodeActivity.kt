@@ -33,7 +33,7 @@ class InputCodeActivity: com.hbcx.driver.ui.TranslateStatusBarActivity() {
                 toast("请输入验票码")
                 return@onClick
             }
-            HttpManager.getTicketDetail(null, userId, s).request(this@InputCodeActivity,false, success = { _, data ->
+            HttpManager.getTicketDetail(s, userId, null).request(this@InputCodeActivity,false, success = { _, data ->
                 if (data != null){
                     startActivity<com.hbcx.driver.ui.ticketbus.TicketDetailActivity>("data" to data)
                     setResult(Activity.RESULT_OK)

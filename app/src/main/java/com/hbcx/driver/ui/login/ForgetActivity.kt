@@ -89,13 +89,13 @@ class ForgetActivity : TitleActivity() {
             return
         }
         tv_get_code.isEnabled = false
-        HttpManager.sendSms(phone, 6).request(this,success = { msg, _ ->
+        HttpManager.sendSms(phone, 6).request(this, success = { msg, _ ->
             if (isDestroy) {
                 return@request
             }
             toast(msg.toString())
             countDownTimer.start()
-        },error = {_,_->
+        }, error = { _, _->
             tv_get_code.isEnabled = true
         })
     }

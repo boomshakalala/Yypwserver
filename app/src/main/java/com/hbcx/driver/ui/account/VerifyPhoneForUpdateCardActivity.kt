@@ -1,7 +1,6 @@
 package com.hbcx.driver.ui.account
 
 import android.os.CountDownTimer
-import cn.sinata.xldutils.utils.SPUtils
 import com.hbcx.driver.R
 import com.hbcx.driver.network.HttpManager
 import com.hbcx.driver.utils.request
@@ -52,13 +51,13 @@ class VerifyPhoneForUpdateCardActivity: com.hbcx.driver.ui.TranslateStatusBarAct
 
     private fun sendSms() {
         tv_get_code.isEnabled = false
-        HttpManager.sendSms(phone, 6).request(this,success = { msg, _ ->
+        HttpManager.sendSms(phone, 6).request(this, success = { msg, _ ->
             if (isDestroy) {
                 return@request
             }
             toast(msg.toString())
             countDownTimer.start()
-        },error = {_,_->
+        }, error = { _, _->
             tv_get_code.isEnabled = true
         })
     }

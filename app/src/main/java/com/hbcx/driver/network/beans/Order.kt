@@ -58,6 +58,8 @@ data class Order(val id: Int? = 0) : Serializable {
     val longMileage: Double? = 0.0 //远途距离
     val nightMoney: Double? = 0.0 //夜间费
 
+    val pushTime : Int? = 60
+
 
     fun getStateStr(): String {
         //1=待接单 2=已接单 3=出发前往预约地点 4=到达预约地点 5=开始服务

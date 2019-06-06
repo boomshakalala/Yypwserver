@@ -54,7 +54,7 @@ class PassengerEvaluateActivity: com.hbcx.driver.ui.TranslateStatusBarActivity()
     }
     private var page = 1
     private fun getData(){
-        HttpManager.getEvaluateData(userId,page).request(this,success = {_,data->
+        HttpManager.getEvaluateData(userId,page).request(this, success = { _, data->
             mRecyclerLayout.isRefreshing = false
             data?.let {
                 if (page == 1){
@@ -77,7 +77,7 @@ class PassengerEvaluateActivity: com.hbcx.driver.ui.TranslateStatusBarActivity()
                 if (it.evaluateList.isEmpty()&&page != 1)
                     mRecyclerLayout.setLoadMoreText("没有更多")
             }
-        },error = {_,_->
+        }, error = { _, _->
             mRecyclerLayout.isRefreshing = false
         })
     }

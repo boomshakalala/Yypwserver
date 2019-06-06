@@ -81,7 +81,7 @@ class CarManageActivity : com.hbcx.driver.ui.TranslateStatusBarActivity() {
 
     private var page = 1
     private fun getData(){
-        HttpManager.getCarList(userId,page).request(this,success = {_,data->
+        HttpManager.getCarList(userId,page).request(this, success = { _, data->
             swipeRefreshLayout.isRefreshing = false
             data?.let {
                 if (page == 1)
@@ -93,7 +93,7 @@ class CarManageActivity : com.hbcx.driver.ui.TranslateStatusBarActivity() {
                     swipeRefreshLayout.setLoadMoreText("没有更多")
                 adapter.notifyDataSetChanged()
             }
-        },error = {_,_->
+        }, error = { _, _->
             swipeRefreshLayout.isRefreshing = false
         })
     }

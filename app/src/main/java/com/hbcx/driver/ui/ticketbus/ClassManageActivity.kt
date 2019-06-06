@@ -8,10 +8,8 @@ import cn.sinata.xldutils.utils.SPUtils
 import cn.sinata.xldutils.view.SwipeRefreshRecyclerLayout
 import com.hbcx.driver.R
 import com.hbcx.driver.adapter.ClassManageAdapter
-import com.hbcx.driver.adapter.LineManageAdapter
 import com.hbcx.driver.network.HttpManager
 import com.hbcx.driver.network.beans.ClassModel
-import com.hbcx.driver.network.beans.Line
 import com.hbcx.driver.ui.TranslateStatusBarActivity
 import com.hbcx.driver.utils.Const
 import com.hbcx.driver.utils.request

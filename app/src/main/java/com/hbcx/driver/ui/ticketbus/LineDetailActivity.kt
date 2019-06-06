@@ -127,7 +127,7 @@ class LineDetailActivity : com.hbcx.driver.ui.TranslateStatusBarActivity(), Slid
                     calculateRoute(LatLonPoint(it.startLat, it.startLon), LatLonPoint(it.endLat, it.endLon))
                 }
                 adapter.setOnItemClickListener { view, position ->
-                    startActivity<com.hbcx.driver.ui.ticketbus.PassengersActivity>("id" to id, "time" to time, "upId" to it.lineList[position].id)
+                    startActivity<PassengersActivity>("id" to id, "time" to time, "upId" to it.lineList[position].id)
                 }
             }
         }

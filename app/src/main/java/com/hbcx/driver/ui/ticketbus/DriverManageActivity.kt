@@ -55,7 +55,7 @@ class DriverManageActivity : com.hbcx.driver.ui.TranslateStatusBarActivity() {
         SPUtils.instance().getInt(Const.User.USER_ID)
     }
     private fun getData(){
-        HttpManager.getDriverList(userId,page).request(this,success = {_,data->
+        HttpManager.getDriverList(userId,page).request(this, success = { _, data->
             swipeRefreshLayout.isRefreshing = false
             data?.let {
                 if (page == 1)
@@ -67,7 +67,7 @@ class DriverManageActivity : com.hbcx.driver.ui.TranslateStatusBarActivity() {
                     swipeRefreshLayout.setLoadMoreText("没有更多")
                 adapter.notifyDataSetChanged()
             }
-        },error = {_,_->
+        }, error = { _, _->
             swipeRefreshLayout.isRefreshing = false
         })
     }

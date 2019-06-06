@@ -1,8 +1,10 @@
 package com.hbcx.driver.adapter
 
+import android.widget.LinearLayout
 import android.widget.TextView
 import cn.sinata.xldutils.adapter.HFRecyclerAdapter
 import cn.sinata.xldutils.adapter.util.ViewHolder
+import cn.sinata.xldutils.gone
 import cn.sinata.xldutils.visible
 import com.hbcx.driver.R
 import com.hbcx.driver.network.beans.TicketBus
@@ -18,12 +20,20 @@ class TicketBusAdapter(data:ArrayList<TicketBus>, private val canStart:Boolean, 
         holder.setText(R.id.tv_station_count,String.format("%d站",data.stationNum))
         holder.setText(R.id.tv_person_count,String.format("已坐：%d人",data.peoNum))
         holder.setText(R.id.tv_action,data.getActionStr())
+        holder.setText(R.id.tv_ticket_count,data.pedestal.toString()+" >")
+
+        holder.bind<TextView>(R.id.tv_location).onClick { listener.onLocation(data.id) }
+        holder.bind<TextView>(R.id.tv_time).onClick { listener.onChangeTime(data.id) }
 
         holder.bind<TextView>(R.id.tv_passengers).onClick {
             listener.onPassengerList(data.id)
         }
         holder.bind<TextView>(R.id.tv_sale_ticket).onClick {
             listener.onSaleTicket(data)
+        }
+
+        holder.bind<LinearLayout>(R.id.ll_setting).onClick {
+            listener.onSetCount(data)
         }
         if (canStart){
             holder.bind<TextView>(R.id.tv_action).visible()
@@ -35,17 +45,24 @@ class TicketBusAdapter(data:ArrayList<TicketBus>, private val canStart:Boolean, 
                 else
                     listener.onStarted(data.id)
             }
+        }else{
+            holder.bind<TextView>(R.id.tv_action).gone()
+            holder.bind<TextView>(R.id.tv_sale_ticket).gone()
         }
         holder.itemView.onClick {
             listener.onItemClick(data.id)
         }
+
     }
 
     interface OnItemClickListener{
         fun onPassengerList(id:Int)
-        fun onSaleTicket(data: com.hbcx.driver.network.beans.TicketBus)
+        fun onSaleTicket(data:TicketBus)
         fun onArrived(id:Int)
         fun onStarted(id:Int)
         fun onItemClick(id:Int)
+        fun onLocation(id: Int)
+        fun onChangeTime(id: Int)
+        fun onSetCount(data:TicketBus)
     }
 }

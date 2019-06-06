@@ -39,7 +39,7 @@ class ScanQrCodeActivity : com.hbcx.driver.ui.TranslateStatusBarActivity(), Code
             val id = result.substring(7)
             HttpManager.getTicketDetail(id, userId, null).request(this, false, success = { _, data ->
                 if (data != null){
-                    startActivity<TicketDetailActivity>("data" to data)
+                    startActivity<TicketDetailActivity>("data" to data,"id" to id)
                     finish()
                 }
             }, error = { _, msg ->

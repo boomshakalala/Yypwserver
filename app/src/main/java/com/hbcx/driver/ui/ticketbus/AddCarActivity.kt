@@ -136,11 +136,11 @@ class AddCarActivity : com.hbcx.driver.ui.TranslateStatusBarActivity() {
             }
             btn_action.isEnabled = false
             HttpManager.addCar(carType,color,tv_car_num.text.toString()+carNum,seatCount.toInt()
-                    ,userId,checkTime,carBodyImg,lisenceImg,carLisenceImg,strongInsurance,commercialInsurance).request(this@AddCarActivity,success = {msg,_->
+                    ,userId,checkTime,carBodyImg,lisenceImg,carLisenceImg,strongInsurance,commercialInsurance).request(this@AddCarActivity, success = { msg, _->
                 toast(msg!!)
                 setResult(Activity.RESULT_OK)
                 finish()
-            },error = {_,_->
+            }, error = { _, _->
                 btn_action.isEnabled = true
             })
         }

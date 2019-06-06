@@ -48,7 +48,7 @@ class WithdrawHistoryActivity: com.hbcx.driver.ui.TranslateStatusBarActivity(),S
     }
 
     private fun getData(){
-        com.hbcx.driver.network.HttpManager.getWithdrawHistroy(userId,page).request(this,success = { _, data->
+        com.hbcx.driver.network.HttpManager.getWithdrawHistroy(userId,page).request(this, success = { _, data->
             mRecyclerLayout.isRefreshing = false
             data?.let {
                 if (page == 1)
@@ -59,7 +59,7 @@ class WithdrawHistoryActivity: com.hbcx.driver.ui.TranslateStatusBarActivity(),S
                 if (it.isEmpty()&&page!=1)
                     mRecyclerLayout.setLoadMoreText("没有更多数据")
             }
-        },error = {_,_->
+        }, error = { _, _->
             mRecyclerLayout.isRefreshing = false
         })
     }

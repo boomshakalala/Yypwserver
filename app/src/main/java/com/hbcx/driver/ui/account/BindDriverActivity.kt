@@ -2,7 +2,6 @@ package com.hbcx.driver.ui.account
 
 import android.app.Activity
 import android.support.v7.widget.LinearLayoutManager
-import android.util.Log
 import android.view.View
 import cn.sinata.xldutils.utils.SPUtils
 import cn.sinata.xldutils.view.SwipeRefreshRecyclerLayout
@@ -75,7 +74,7 @@ class BindDriverActivity : TranslateStatusBarActivity() {
         SPUtils.instance().getInt(Const.User.USER_ID)
     }
     private fun getData() {
-        HttpManager.getIdelDriverList(userId,page).request(this,success = {_,data->
+        HttpManager.getIdelDriverList(userId,page).request(this, success = { _, data->
             recyclerLayout.isRefreshing = false
             if (page == 1)
                 drivers.clear()
@@ -86,7 +85,7 @@ class BindDriverActivity : TranslateStatusBarActivity() {
                 if (it.isEmpty()&&page!=1)
                     recyclerLayout.setLoadMoreText("没有更多")
             }
-        },error = {_,_->
+        }, error = { _, _->
             recyclerLayout.isRefreshing = false
         })
     }
