@@ -70,7 +70,7 @@ class ScanQrCodeActivity : com.hbcx.driver.ui.TranslateStatusBarActivity(), Code
             finish()
     }
     override fun initView() {
-        title = "扫码购票"
+        title = "扫码验票"
         val captureFragment= CaptureFragment()
         CodeUtils.setFragmentArgs(captureFragment, R.layout.my_camera)
         captureFragment.analyzeCallback = this

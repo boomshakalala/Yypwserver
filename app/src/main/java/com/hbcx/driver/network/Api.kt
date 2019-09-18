@@ -1,8 +1,11 @@
 package com.hbcx.driver.network
 
+import com.hbcx.driver.BuildConfig
+
 object Api {
-    const val BASE_URL = "http://106.116.167.23:80/YunYou/" //胡瑶内网
-//        const val BASE_URL = "http://39.96.176.247:80/YunYou/" //外网地址
+//        const val BASE_URL = "http://106.116.167.23:80/YunYou/" //外网地址
+    const val BASE_URL = "http:/192.168.1.4:8080/YunYou/" //本地地址
+
     const val URL = "$BASE_URL/app/public/advertInfo?url="
     const val URL1 = BASE_URL + "app/user/getAppText?url="
     const val URL2 = "$BASE_URL/app/public/bannerInfo?url="
@@ -21,7 +24,8 @@ object Api {
 
 
     //    const val SOCKET_SERVER = "192.168.3.228"
-    const val SOCKET_SERVER = "39.96.176.247"
+//    const val SOCKET_SERVER = "106.116.167.23"
+    const val SOCKET_SERVER = "192.168.1.4"
     const val SOCKET_PORT = 8888
 
 
