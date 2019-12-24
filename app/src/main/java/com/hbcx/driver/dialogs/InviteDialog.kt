@@ -6,8 +6,10 @@ import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import cn.sinata.xldutils.utils.SPUtils
 import com.hbcx.driver.R
 import com.hbcx.driver.network.Api
+import com.hbcx.driver.utils.Const
 import com.share.utils.ShareUtils
 import com.umeng.socialize.UMShareListener
 import com.umeng.socialize.bean.SHARE_MEDIA
@@ -19,6 +21,11 @@ import org.jetbrains.anko.support.v4.toast
 import org.jetbrains.anko.wrapContent
 
 class InviteDialog : DialogFragment() {
+    private val userId by lazy {
+        SPUtils.instance().getInt(Const.User.USER_ID,0)
+    }
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setStyle(android.support.v4.app.DialogFragment.STYLE_NO_FRAME, R.style.Dialog)
@@ -58,19 +65,19 @@ class InviteDialog : DialogFragment() {
         }
         val umImage = UMImage(activity, R.drawable.share_icon)
         tv_qq.onClick {
-            ShareUtils.share(activity,SHARE_MEDIA.QQ,"迎使用“伙伴出行”！伙伴出行是传统客运与互联网技术相融合的出行新产品，带给您线上与线下的新体验。伙伴出行，伴您全程！","伙伴出行", Api.SHARE_URL,umImage,listener)
+            ShareUtils.share(activity,SHARE_MEDIA.QQ,"迎使用“伙伴出行”！伙伴出行是传统客运与互联网技术相融合的出行新产品，带给您线上与线下的新体验。伙伴出行，伴您全程！","伙伴出行", Api.SHARE_URL+userId,umImage,listener)
         }
         tv_qq_zone.onClick {
-            ShareUtils.share(activity,SHARE_MEDIA.QZONE,"迎使用“伙伴出行”！伙伴出行是传统客运与互联网技术相融合的出行新产品，带给您线上与线下的新体验。伙伴出行，伴您全程！","伙伴出行", Api.SHARE_URL,umImage,listener)
+            ShareUtils.share(activity,SHARE_MEDIA.QZONE,"迎使用“伙伴出行”！伙伴出行是传统客运与互联网技术相融合的出行新产品，带给您线上与线下的新体验。伙伴出行，伴您全程！","伙伴出行", Api.SHARE_URL+userId,umImage,listener)
         }
         tv_wechat.onClick {
-            ShareUtils.share(activity,SHARE_MEDIA.WEIXIN,"迎使用“伙伴出行”！伙伴出行是传统客运与互联网技术相融合的出行新产品，带给您线上与线下的新体验。伙伴出行，伴您全程！","伙伴出行", Api.SHARE_URL,umImage,listener)
+            ShareUtils.share(activity,SHARE_MEDIA.WEIXIN,"迎使用“伙伴出行”！伙伴出行是传统客运与互联网技术相融合的出行新产品，带给您线上与线下的新体验。伙伴出行，伴您全程！","伙伴出行", Api.SHARE_URL+userId,umImage,listener)
         }
         tv_moment.onClick {
-            ShareUtils.share(activity,SHARE_MEDIA.WEIXIN_CIRCLE,"迎使用“伙伴出行”！伙伴出行是传统客运与互联网技术相融合的出行新产品，带给您线上与线下的新体验。伙伴出行，伴您全程！","伙伴出行", Api.SHARE_URL,umImage,listener)
+            ShareUtils.share(activity,SHARE_MEDIA.WEIXIN_CIRCLE,"迎使用“伙伴出行”！伙伴出行是传统客运与互联网技术相融合的出行新产品，带给您线上与线下的新体验。伙伴出行，伴您全程！","伙伴出行", Api.SHARE_URL+userId,umImage,listener)
         }
         tv_weibo.onClick {
-            ShareUtils.share(activity,SHARE_MEDIA.SINA,"迎使用“伙伴出行”！伙伴出行是传统客运与互联网技术相融合的出行新产品，带给您线上与线下的新体验。伙伴出行，伴您全程！","伙伴出行", Api.SHARE_URL,umImage,listener)
+            ShareUtils.share(activity,SHARE_MEDIA.SINA,"迎使用“伙伴出行”！伙伴出行是传统客运与互联网技术相融合的出行新产品，带给您线上与线下的新体验。伙伴出行，伴您全程！","伙伴出行", Api.SHARE_URL+userId,umImage,listener)
         }
     }
 }

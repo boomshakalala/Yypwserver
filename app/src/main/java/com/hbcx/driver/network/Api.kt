@@ -3,14 +3,14 @@ package com.hbcx.driver.network
 import com.hbcx.driver.BuildConfig
 
 object Api {
-//        const val BASE_URL = "http://106.116.167.23:80/YunYou/" //外网地址
-    const val BASE_URL = "http:/192.168.1.4:8080/YunYou/" //本地地址
+        const val BASE_URL = "http://106.116.167.23:80/YunYou/" //外网地址
+//    const val BASE_URL = "http:/192.168.1.188:8080/YunYou/" //本地地址
 
     const val URL = "$BASE_URL/app/public/advertInfo?url="
     const val URL1 = BASE_URL + "app/user/getAppText?url="
     const val URL2 = "$BASE_URL/app/public/bannerInfo?url="
     const val INFO_URL = BASE_URL + "sys/apptext/getAppText?type=%s"
-    const val SHARE_URL = "http://106.116.167.23/download.html"
+    const val SHARE_URL = "http://106.116.167.23/YunYou/resources/share/down.html?userId="
     const val OSS_END_POINT = "http://oss-cn-beijing.aliyuncs.com"
     const val CALCEL_RULE = "$BASE_URL"
     const val JUHE_URL = "http://v.juhe.cn/bankcardinfo/query" //聚合
